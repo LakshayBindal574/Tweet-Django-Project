@@ -1,0 +1,146 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
+body {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    font-family: 'Segoe UI', sans-serif;
+    color: #e5e7eb;
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    background: rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #60a5fa !important;
+    font-size: 22px;
+}
+
+/* =========================
+   PAGE TITLE
+========================= */
+h2, h3, h1 {
+    font-weight: 700;
+    color: #f8fafc;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn-primary {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    border: none;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(59,130,246,0.4);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    border: none;
+    border-radius: 10px;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    border: none;
+    border-radius: 10px;
+}
+
+/* =========================
+   TWEET CARD
+========================= */
+.card {
+    background: aliceblue !important;
+    border: 1px solid #dbeafe;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.3s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* IMAGE */
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+}
+
+/* CARD BODY */
+.card-body {
+    padding: 15px;
+}
+
+.card h6 {
+    color: black;
+    font-weight: 600;
+}
+
+.card p {
+    color: black;
+}
+
+/* =========================
+   FORM DESIGN
+========================= */
+form {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+
+input:focus, textarea:focus {
+    border: 1px solid #3b82f6;
+}
+
+/* =========================
+   LINKS
+========================= */
+a {
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.card {
+    animation: fadeIn 0.5s ease-in-out;
+}

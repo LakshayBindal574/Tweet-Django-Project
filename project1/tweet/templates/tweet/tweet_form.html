@@ -1,0 +1,17 @@
+{% extends 'project1/layout.html' %}
+
+{% block title %}Tweet Form{% endblock %}
+
+{% block content %}
+
+<h2>Create / Update Tweet</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

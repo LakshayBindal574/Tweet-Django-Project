@@ -1,0 +1,70 @@
+{% extends "project1/layout.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+
+            <div class="card bg-dark border-secondary text-white shadow-lg p-4 p-md-5 mt-4">
+
+                <h2 class="mb-4 text-center">Create Account</h2>
+
+                <form method="post">
+                    {% csrf_token %}
+
+                    {% if form.non_field_errors %}
+                        {% for error in form.non_field_errors %}
+                            <div class="alert alert-danger">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% for field in form %}
+                        <div class="mb-3">
+                            
+                            <label class="form-label text-light" for="{{ field.id_for_label }}">
+                                {{ field.label }}
+                            </label>
+
+                            {{ field }}
+
+                            {% if field.help_text %}
+                                <small class="form-text text-secondary d-block mt-1">
+                                    {{ field.help_text|safe }}
+                                </small>
+                            {% endif %}
+
+                            {% if field.errors %}
+                                {% for error in field.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ error }}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+
+                    <button class="btn btn-success w-100 mt-3 py-2">
+                        Register
+                    </button>
+                </form>
+
+                <!-- FIXED VISIBILITY SECTION -->
+                <div class="text-center mt-4">
+                    <p class="mb-0 text-light">
+                        Already have an account?
+                        <a href="{% url 'login' %}" class="text-info fw-semibold text-decoration-none">
+                            Login
+                        </a>
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

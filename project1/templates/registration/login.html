@@ -1,0 +1,126 @@
+{% extends "project1/layout.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<style>
+    .login-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    .login-card {
+        width: 100%;
+        max-width: 420px;
+        background: #1e1e1e;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        color: #fff;
+        font-family: Arial, sans-serif;
+    }
+
+    .login-card h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 6px;
+        color: #ddd;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #444;
+        background: #2a2a2a;
+        color: #fff;
+    }
+
+    .btn-login {
+        width: 100%;
+        padding: 10px;
+        background: #0d6efd;
+        border: none;
+        border-radius: 6px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .btn-login:hover {
+        background: #0b5ed7;
+    }
+
+    .login-footer {
+        margin-top: 18px;
+        text-align: center;
+        color: #fff;
+        font-size: 14px;
+    }
+
+    .login-footer a {
+        color: #00c8ff;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .login-footer a:hover {
+        text-decoration: underline;
+    }
+
+    .error {
+        color: #ff6b6b;
+        font-size: 13px;
+        margin-top: 5px;
+    }
+</style>
+
+<div class="login-wrapper">
+    <div class="login-card">
+
+        <h2>Login</h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            {% endif %}
+
+            {% for field in form %}
+                <div class="form-group">
+                    <label>{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.errors %}
+                        {% for error in field.errors %}
+                            <div class="error">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="btn-login">Login</button>
+        </form>
+
+        <div class="login-footer">
+            Don't have an account?
+            <a href="{% url 'register' %}">Register</a>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
